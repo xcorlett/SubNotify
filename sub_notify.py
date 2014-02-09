@@ -1,3 +1,7 @@
+## This is a fork from the SubNotify project to add a number of basic notifications.
+## eg. On save, flash a growl notification to confirm that the file was indeed saved. 
+## works well with the tiny Nano notification style, centered on the top of the screen (configure this in growl)
+
 """
 SubNotify
 
@@ -9,6 +13,7 @@ from os.path import join, exists, dirname
 from os import makedirs
 import sublime
 import sublime_plugin
+import os
 
 PLUGIN_SETTINGS = "sub_notify.sublime-settings"
 SUB_NOTIFY_READY = False
