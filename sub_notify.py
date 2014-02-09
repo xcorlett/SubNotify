@@ -1,6 +1,8 @@
 ## This is a fork from the SubNotify project to add a number of basic notifications.
 ## eg. On save, flash a growl notification to confirm that the file was indeed saved. 
-## works well with the tiny Nano notification style, centered on the top of the screen (configure this in growl)
+## Use with the Hooks plugin.
+
+## works well with the tiny Nano notification style in Growl, centered on the top of the screen. 
 
 """
 SubNotify
@@ -64,6 +66,7 @@ def debug_log(s):
 class SubNotifyCommand(sublime_plugin.ApplicationCommand):
     def run(self, title, msg, sound=False, level="info"):
         if SubNotifyIsReadyCommand.is_ready():
+            CURRENT_FILENAME = view.fileName()
             if level == "error":
                 notify.error(title, msg, sound)
             elif level == "warning":
